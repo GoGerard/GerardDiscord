@@ -5,6 +5,7 @@ A modern bot for Discord - The Discord bot.
 [![Go Report](http://goreportcard.com/badge/GoGerard/GerardDiscord)](http://goreportcard.com/report/GoGerard/GerardDiscord)
 [![Issues](https://img.shields.io/github/issues/GoGerard/GerardDiscord.svg)](https://github.com/GoGerard/GerardDiscord/issues)
 [![Coverage Status](https://coveralls.io/repos/GoGerard/GerardDiscord/badge.svg?branch=master&service=github)](https://coveralls.io/github/GoGerard/GerardDiscord?branch=master)
+
 ----------
 
 ## GoGerard
