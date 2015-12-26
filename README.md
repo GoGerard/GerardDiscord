@@ -1,5 +1,5 @@
 # GerardDiscord
-A modern bot for Discord - The Discord bot. 
+A modern bot for Discord - The Discord bot.
 
 
 ----------
@@ -9,21 +9,28 @@ GoGerard is an opensource project that focuses on easy to adapt, community-drive
 
 The application is written in three separated parts, which are all replaceable to adapt to your project's needs.
 
- - [GerardDiscord](https://github.com/GoGerard/GerardDiscord) - A client, written in Golang, that communicates with the Discord API. 
+ - [GerardDiscord](https://github.com/GoGerard/GerardDiscord) - A client, written in Golang, that communicates with the Discord API.
  - [GerardAPI](https://github.com/GoGerard/GerardAPI) - An API Server, written in Golang, that is used to communicate with the client and database(s)
- - [GerardJS](https://github.com/GoGerard/GerardJS) - A web interface, powered by AngularJS, that serves the API to its end-users. 
+ - [GerardJS](https://github.com/GoGerard/GerardJS) - A web interface, powered by AngularJS, that serves the API to its end-users.
 
-Note that in the current state the project is nowhere finished, dependent on unstable external libraries,  and breakable changes to the project will happen till a future release. 
-
-The project will provide docker support in future.
-
+Note that in the current state the project is nowhere finished, dependent on unstable external libraries,  and breakable changes to the project will happen till a future release.
 
 ----------
 
 ### GerardDiscord ###
 
-The Discord Client is written in Golang and is currently depended on the following libraries: 
+The Discord Client is written in Golang and is currently depended on the following libraries:
 
- - [Gorm](https://github.com/jinzhu/gorm) - 'The fantastic ORM library for Golang, aims to be developer friendly.'
- - [discordgo](https://github.com/bwmarrin/discordgo) - 'Golang bindings for Discord '
+ 1. [Gorm](https://github.com/jinzhu/gorm) - 'The fantastic ORM library for Golang, aims to be developer friendly.'
+ 2. [discordgo](https://github.com/bwmarrin/discordgo) - 'Golang bindings for Discord '
 
+
+**How to use?**
+
+ 1. Clone repo
+ 2. Duplicate conf_sample.json to conf.json
+ 3. Fill in configuration with Discord account details
+ 4. `$ docker run --name POSTGRESCONTAINERNAME -e POSTGRES_PASSWORD=mysecretpassword -d postgres`
+ 5. Open terminal in project folder
+ 6. `$ docker build -t gerarddiscord .`
+ 7. `$ docker run -it --rm --name containername --link POSTGRESCONTAINERNAME:postgres  gerarddiscord`
