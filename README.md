@@ -1,5 +1,5 @@
-# GerardAPI
-A modern bot for Discord - The API
+# GerardDiscord
+A modern bot for Discord - The Discord bot. 
 
 
 ----------
