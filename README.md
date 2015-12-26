@@ -1,5 +1,5 @@
 # GerardDiscord
-A modern bot for Discord - The Discord bot.
+A modern bot for Discord - The Discord bot. [![Build Status](https://travis-ci.org/GoGerard/GerardDiscord.svg)](https://travis-ci.org/GoGerard/GerardDiscord)
 
 
 ----------

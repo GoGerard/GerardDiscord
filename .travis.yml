@@ -1,0 +1,8 @@
+language: go
+
+go:
+  - tip
+
+install:
+  - go get github.com/jinzhu/gorm
+  - go get github.com/bwmarrin/discordgo
