@@ -1,8 +1,9 @@
 # GerardDiscord
 A modern bot for Discord - The Discord bot.
+
 [![Build Status](https://travis-ci.org/GoGerard/GerardDiscord.svg)](https://travis-ci.org/GoGerard/GerardDiscord)
 [![Go Report](http://goreportcard.com/badge/GoGerard/GerardDiscord)](http://goreportcard.com/report/GoGerard/GerardDiscord)
-
+[![Issues](https://img.shields.io/github/issues/GoGerard/GerardDiscord.svg)](https://github.com/GoGerard/GerardDiscord/issues)
 
 ----------
 
