@@ -10,7 +10,7 @@ A modern bot for Discord - The Discord bot.
 
 ## GoGerard
 
-Project details can be found on [main repo.](https://github.com/GoGerard/GoGerard)
+Project details can be found on the [main repo.](https://github.com/GoGerard/GoGerard)
 
 
 ----------
