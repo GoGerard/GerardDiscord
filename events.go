@@ -77,7 +77,7 @@ func OnMessageCreate(s *discordgo.Session, m discordgo.Message) {
 		db.Close()
 	}
 
-	if strings.HasPrefix(m.Content, "!ecchi") {
+	if strings.HasPrefix(m.Content, "!picture") {
 		db, err := ConnectDB()
 		if err != nil {
 			log.Fatal(err)
@@ -133,10 +133,6 @@ func OnMessageCreate(s *discordgo.Session, m discordgo.Message) {
 
 		s.ChannelMessageSend(m.ChannelID, token)
 
-	}
-
-	if strings.HasPrefix(m.Content, "!web") {
-		s.ChannelMessageSend(m.ChannelID, "Hier link naar Webinterface")
 	}
 
 	if strings.HasPrefix(m.Content, "!tags") {
