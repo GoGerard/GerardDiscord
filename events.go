@@ -16,20 +16,6 @@ import (
 func OnMessageCreate(s *discordgo.Session, m discordgo.Message) {
 	log.Printf("[%5s]: %5s > %s\n", m.ChannelID, m.Author.Username, m.Content)
 
-	if strings.HasPrefix(m.Content, "!help") {
-		SendMeuk(s, m)
-	}
-
-	if strings.HasPrefix(m.Content, "!slope") {
-		s.ChannelMessageSend(m.ChannelID, "http://i.imgur.com/d5ML2op.png")
-	}
-
-	if strings.HasPrefix(m.Content, "!a") {
-		s.ChannelMessageSend(m.ChannelID, "AAAA "+m.Author.Username+", LET MIE TINK OF THAT KWESTJUN")
-		s.ChannelMessageSend(m.ChannelID, "THAT IS:")
-		s.ChannelMessageSend(m.ChannelID, string(ReturnRandomLine("ball8")))
-	}
-
 	if strings.HasPrefix(m.Content, "!go") {
 		out, err := exec.Command("go", "version").Output()
 		if err != nil {
@@ -42,7 +28,7 @@ func OnMessageCreate(s *discordgo.Session, m discordgo.Message) {
 	if strings.HasPrefix(m.Content, "!timer") {
 		var second = strings.Split(m.Content, " ")
 		if len(second) != 1 {
-			s.ChannelMessageSend(m.ChannelID, "Ok, <@"+m.Author.ID+">, timer voor "+second[1]+" minuten!")
+			s.ChannelMessageSend(m.ChannelID, "Ok, <@"+m.Author.ID+">, timer for "+second[1]+" minutes!")
 
 			n, err := strconv.Atoi(second[1])
 			if err != nil {
@@ -52,7 +38,7 @@ func OnMessageCreate(s *discordgo.Session, m discordgo.Message) {
 			timer1 := time.NewTimer(time.Minute * time.Duration(n))
 			<-timer1.C
 			fmt.Println("Timer 1 expired")
-			s.ChannelMessageSend(m.ChannelID, "<@"+m.Author.ID+">, einde timer!")
+			s.ChannelMessageSend(m.ChannelID, "<@"+m.Author.ID+">, your timer has ended!")
 		}
 
 	}
@@ -64,7 +50,7 @@ func OnMessageCreate(s *discordgo.Session, m discordgo.Message) {
 		}
 
 		if m.ChannelID == Server.SFWChannel { //SFW Check
-			s.ChannelMessageSend(m.ChannelID, "Doe niet, dit is de SFW Channel")
+			s.ChannelMessageSend(m.ChannelID, "This is a SFW channel!")
 			return
 		}
 
@@ -84,7 +70,7 @@ func OnMessageCreate(s *discordgo.Session, m discordgo.Message) {
 		}
 
 		if m.ChannelID == Server.SFWChannel { //SFW Check
-			s.ChannelMessageSend(m.ChannelID, "Doe niet, dit is de SFW Channel")
+			s.ChannelMessageSend(m.ChannelID, "This is a SFW channel!")
 			return
 		}
 		var param = strings.Split(m.Content, " ")
@@ -142,7 +128,7 @@ func OnMessageCreate(s *discordgo.Session, m discordgo.Message) {
 		}
 
 		if m.ChannelID == Server.SFWChannel { //SFW Check
-			s.ChannelMessageSend(m.ChannelID, "Doe niet, dit is de SFW Channel")
+			s.ChannelMessageSend(m.ChannelID, "This is a SFW channel!")
 			return
 		}
 
