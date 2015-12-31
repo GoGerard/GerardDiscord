@@ -12,6 +12,8 @@ import (
 	"github.com/bwmarrin/discordgo"
 )
 
+var set int
+
 //OnMessageCreate gets called when a new message occurs in the Session
 func OnMessageCreate(s *discordgo.Session, m discordgo.Message) {
 	log.Printf("[%5s]: %5s > %s\n", m.ChannelID, m.Author.Username, m.Content)
@@ -139,6 +141,41 @@ func OnMessageCreate(s *discordgo.Session, m discordgo.Message) {
 		}
 
 		db.Close()
+	}
+
+	if strings.HasPrefix(m.Content, "!secret") {
+		if set == 1 {
+			s.ChannelMessageSend(m.ChannelID, "Secret already enabled")
+			return
+		}
+		set = 1
+		s.ChannelMessageSend(m.ChannelID, "Secret enabled!")
+
+		Now := time.Now()
+		NewYear, _ := time.Parse("2006-Jan-02", "2016-Jan-01")
+
+		//NewYear := Now.Add(1 * time.Minute)
+		log.Println(Now)
+		log.Println(NewYear)
+		log.Println(NewYear.Sub(Now))
+
+		timer1 := time.NewTimer(NewYear.Sub(Now))
+		go func() {
+			<-timer1.C
+			db, err := ConnectDB()
+			if err != nil {
+				log.Fatal(err)
+			}
+
+			HappyNewYear(db)
+			s.ChannelMessageSend(m.ChannelID, "!picture HNY all")
+
+			for i := 0; i < 10; i++ {
+				s.ChannelMessageSend(m.ChannelID, "Happy New Year, groetjes Gerard!")
+			}
+			log.Println("Happy New Year, Docker!")
+		}()
+
 	}
 
 }
