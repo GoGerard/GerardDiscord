@@ -11,7 +11,6 @@ import (
 //Session contains events and points to function
 var Session = discordgo.Session{
 	OnMessageCreate: OnMessageCreate,
-	OnReady:         OnReady,
 }
 
 //Server contains default GoGerard data
