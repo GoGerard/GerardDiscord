@@ -180,10 +180,4 @@ func OnMessageCreate(s *discordgo.Session, m discordgo.Message) {
 
 }
 
-//OnReady gets called when a OnReady event happens in the Session
-//This event is neccessary to keep a websocket connection with the Discord API
-func OnReady(s *discordgo.Session, st discordgo.Ready) {
-	fmt.Println("* OnReady fired.")
-	// start the Heartbeat
-	s.Heartbeat(st.HeartbeatInterval)
-}
+
