@@ -143,41 +143,19 @@ func OnMessageCreate(s *discordgo.Session, m discordgo.Message) {
 		db.Close()
 	}
 
-	if strings.HasPrefix(m.Content, "!secret") {
-		if set == 1 {
-			s.ChannelMessageSend(m.ChannelID, "Secret already enabled")
+	if strings.HasPrefix(m.Content, "!game") {
+		var args = strings.Split(m.Content, " ")
+		if len(args) < 2 {
+			s.ChannelMessageSend(m.ChannelID, "Error! Not enough arguments!")
 			return
 		}
-		set = 1
-		s.ChannelMessageSend(m.ChannelID, "Secret enabled!")
 
-		Now := time.Now()
-		NewYear, _ := time.Parse("2006-Jan-02", "2016-Jan-01")
-
-		//NewYear := Now.Add(1 * time.Minute)
-		log.Println(Now)
-		log.Println(NewYear)
-		log.Println(NewYear.Sub(Now))
-
-		timer1 := time.NewTimer(NewYear.Sub(Now))
-		go func() {
-			<-timer1.C
-			db, err := ConnectDB()
-			if err != nil {
-				log.Fatal(err)
-			}
-
-			HappyNewYear(db)
-			s.ChannelMessageSend(m.ChannelID, "!picture HNY all")
-
-			for i := 0; i < 10; i++ {
-				s.ChannelMessageSend(m.ChannelID, "Happy New Year, groetjes Gerard!")
-			}
-			log.Println("Happy New Year, Docker!")
-		}()
+		err := s.UpdateStatus(0, args[1])
+		if err != nil {
+			log.Println(err)
+			return
+		}
 
 	}
 
 }
-
-
