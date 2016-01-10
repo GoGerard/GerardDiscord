@@ -2,11 +2,9 @@ language: go
 sudo: false
 go:
   - tip
-install:
-  - go get github.com/bwmarrin/discordgo
 before_install:
   - go get github.com/axw/gocov/gocov
   - go get github.com/mattn/goveralls
   - if ! go get github.com/golang/tools/cmd/cover; then go get golang.org/x/tools/cmd/cover; fi
 script:
-  - $HOME/gopath/bin/goveralls -service=travis-ci
+    - $HOME/gopath/bin/goveralls -service=travis-ci
