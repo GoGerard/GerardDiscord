@@ -31,7 +31,7 @@ func GetToken() (string, error) {
 }
 
 //NewAuthSession creates new or replaces Session
-func NewAuthSession(m discordgo.Message) (string, string, error) {
+func NewAuthSession(m *discordgo.Message) (string, string, error) {
 	//Connect DB
 	var Message string
 

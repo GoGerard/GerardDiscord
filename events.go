@@ -15,7 +15,7 @@ import (
 var set int
 
 //OnMessageCreate gets called when a new message occurs in the Session
-func OnMessageCreate(s *discordgo.Session, m discordgo.Message) {
+func OnMessageCreate(s *discordgo.Session, m *discordgo.Message) {
 	log.Printf("[%5s]: %5s > %s\n", m.ChannelID, m.Author.Username, m.Content)
 
 	if strings.HasPrefix(m.Content, "!go") {
